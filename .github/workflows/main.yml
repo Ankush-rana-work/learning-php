@@ -3,7 +3,7 @@ name: Deploy PHP to EC2
 on:
   push:
     branches:
-      - main  # Change to your default branch if different
+      - master  # Change to your default branch if different
 
 jobs:
   deploy:
