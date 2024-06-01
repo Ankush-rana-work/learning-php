@@ -29,5 +29,5 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@ec2-35-154-48-246.ap-south-1.compute.amazonaws.com << 'EOF'
           cd /var/www/html/learning-php
-          git pull origin main
+          git pull origin master
         EOF
