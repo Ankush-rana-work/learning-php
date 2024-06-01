@@ -3,7 +3,7 @@ name: Deploy PHP to EC2
 on:
   push:
     branches:
-      - main  # Change to your default branch if different
+      - master  # Change to your default branch if different
 
 jobs:
   deploy:
@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.4.0
 
     - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
+      uses: webfactory/ssh-agent@v0.6.0
       with:
         ssh-private-key: ${{ secrets.PEM_FILE }}
 
@@ -27,7 +27,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@ip-172-31-47-138 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@ec2-35-154-48-246.ap-south-1.compute.amazonaws.com << 'EOF'
           cd /var/www/html/learning-php
-          git pull origin main
+          git pull origin master
         EOF
