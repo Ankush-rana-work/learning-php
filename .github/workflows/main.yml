@@ -27,7 +27,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@172-31-47-138 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@ec2-35-154-48-246.ap-south-1.compute.amazonaws.com << 'EOF'
           cd /var/www/html/learning-php
           git pull origin main
         EOF
